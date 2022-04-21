@@ -28,10 +28,10 @@ export default function Header(props) {
                 <Link className="nav-link active" aria-current="page" to='/'>Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to='/about'>About</Link>
+                <Link className="nav-link" to='/page/40'>About</Link>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to='/contacts'>Contacts</Link>
+              <Link className="nav-link" to='/page/2'>Contacts</Link>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

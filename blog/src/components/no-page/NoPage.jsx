@@ -6,6 +6,7 @@ export default function NoPage() {
         <div>
             <Header/>
             The page is not found!
+            Error: 404
         </div>
     )
 }

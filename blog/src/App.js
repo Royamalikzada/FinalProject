@@ -1,11 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import About from './components/about/About';
-import Contacts from './components/contacts/Contacts';
 import NoPage from './components/no-page/NoPage';
 import Home from './components/home/Home';
 import PostDetails from './components/postDetails/PostDetails';
+import Pages from './components/pages/Pages';
 
 
 function App() {
@@ -16,8 +15,8 @@ function App() {
           <Route path="/" element={<Outlet />}>
             <Route index element={<Home />} />
             <Route path="/:id" element={<PostDetails />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/page/:id" element={<Pages />} />
+            {/* <Route path="/contacts" element={<Contacts />} /> */}
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>
