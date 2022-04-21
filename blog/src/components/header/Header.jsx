@@ -13,12 +13,14 @@ export default function Header(props) {
         .then(response => setCategories(response))
         .catch(err => console.error(err));
     },[])
-    
+
+  
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-warning mb-5">
-      {/* {console.log(categories)} */}
+      {console.log(categories)}
       <div className="container-fluid">
-          <Link className="navbar-brand" to='/'>Blog</Link>
+          <Link className="navbar-brand" to='/'>HobbyBlog</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
           </button>
@@ -31,7 +33,7 @@ export default function Header(props) {
                 <Link className="nav-link" to='/page/40'>About</Link>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to='/page/2'>Contacts</Link>
+                <Link className="nav-link" to='/page/2'>Contacts</Link>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -39,11 +41,13 @@ export default function Header(props) {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><button className="dropdown-item" onClick={() => props.allCategories()}>All</button></li>
+
                   {categories ? categories.map(category => {
                     return (
                       <li key={category.id}><button onClick={() => props.filter(category.id)} className="dropdown-item">{category.name}</button></li>
                     )
                   }): ''}
+
                 </ul>
               </li>
             </ul>

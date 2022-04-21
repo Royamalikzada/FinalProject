@@ -26,7 +26,6 @@ const Home = (props) => {
         .then(response => response.json())
         .then(response => setPosts(response))
         .catch(err => console.error(err));
-
     },[])
 
     return (
@@ -34,7 +33,7 @@ const Home = (props) => {
             <Header filter={filterResult} allCategories={allCategories}/>
 
             <div className='row'>
-                {filteredPosts ? filteredPosts.map(post => {
+                {posts && (filteredPosts ? filteredPosts : posts).map(post => {
                     return (
                         <div className='col-md-4 col-sm-12 mb-3 text-center' key={post.id}>
                             <div className="card" style={{width: "18rem"}}>
@@ -46,7 +45,7 @@ const Home = (props) => {
                                 </div>
                             </div>
                         </div>
-                    )}) : ''}
+                    )})}
             </div>
 
             <Footer />

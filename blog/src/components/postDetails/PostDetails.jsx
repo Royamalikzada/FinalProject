@@ -29,7 +29,7 @@ export default function PostDetails(props) {
                                 />
                                 <div className="card-body">
                                     <h5 className="card-title">{singlePost.title.rendered}</h5>
-                                    <p className="card-text" dangerouslySetInnerHTML={{__html: singlePost.content.rendered}}></p>
+                                    <p className="card-text text-start" dangerouslySetInnerHTML={{__html: singlePost.content.rendered}}></p>
                                     <Link to='/' className="btn btn-primary">Back to all posts</Link>
                                 </div>
                               </div> 
