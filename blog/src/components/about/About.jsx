@@ -5,7 +5,6 @@ export default function About() {
 
     const [dataAbout, setDataAbout] = useState();
     
-  
       useEffect(()=>{
   
           fetch(`http://localhost/FinalProject/bedrock/web/wp-json/wp/v2/pages/40`)
@@ -20,9 +19,7 @@ export default function About() {
             <Header/>
 
             <h1>About us</h1>
-            {dataAbout ? dataAbout.content.rendered : ""}
-
-            {console.log (dataAbout ? dataAbout.content.rendered : "")}
+            <div dangerouslySetInnerHTML={{__html: dataAbout ? dataAbout.content.rendered : ""}}></div>
         </div>
     )
 }

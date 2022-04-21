@@ -3,8 +3,6 @@ import Header from '../header/Header';
 
 const Home = (props) => {
 
-    // const {id} = useParams();
-
     const [posts, setPosts] = useState();
     const [filteredPosts, setFilteredPosts] = useState();
 
@@ -23,7 +21,7 @@ const Home = (props) => {
 
     useEffect(()=>{
 
-        fetch(`http://localhost/FinalProject/bedrock/web/wp-json/wp/v2/posts`)
+        fetch(`http://localhost/FinalProject/bedrock/web/wp-json/wp/v2/posts?per_page=20`)
         .then(response => response.json())
         .then(response => setPosts(response))
         .catch(err => console.error(err));
@@ -33,9 +31,10 @@ const Home = (props) => {
     return (
         <div>
             <Header filter={filterResult} allCategories={allCategories}/>
-             
+
             <form>
                 {filteredPosts ? filteredPosts.map(post => {
+                    console.log(post)
                     return (
                         <div className='form-group' key={post.id}>
                             <label className='form-label'> Title: {post.title.rendered}</label>
