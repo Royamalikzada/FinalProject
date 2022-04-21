@@ -5,6 +5,7 @@ import About from './components/about/About';
 import Contacts from './components/contacts/Contacts';
 import NoPage from './components/no-page/NoPage';
 import Home from './components/home/Home';
+import PostDetails from './components/postDetails/PostDetails';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Outlet />}>
             <Route index element={<Home />} />
+            <Route path="/:id" element={<PostDetails />} />
             <Route path="/about" element={<About />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="*" element={<NoPage />} />

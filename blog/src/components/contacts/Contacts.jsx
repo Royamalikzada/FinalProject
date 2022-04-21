@@ -16,7 +16,7 @@ export default function Contacts() {
       },[])
 
     return (
-        <div>
+        <div >
             <Header/>
 
             <h1>Find us</h1>
