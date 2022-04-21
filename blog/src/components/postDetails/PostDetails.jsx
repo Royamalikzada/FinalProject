@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import Footer from '../footer/Footer';
+import Header from '../header/Header';
 
 export default function PostDetails(props) {
     
@@ -8,7 +10,6 @@ export default function PostDetails(props) {
 
         useEffect(()=>{
             
-
             fetch(`http://localhost/FinalProject/bedrock/web/wp-json/wp/v2/posts/${id}?_embed`)
             .then(response => response.json())
             .then(response => setSinglePost(response))
@@ -17,18 +18,24 @@ export default function PostDetails(props) {
     
         return(
             <div className='text-center' >
-                {console.log(singlePost)}
+                <Header />
 
                 {singlePost ? <div className="card mt-5" style={{width: "100%"}}>
-                                <img src={singlePost._embedded['wp:featuredmedia']['0'].source_url.toString()} style={{margin: "0 auto", width: "30%"}} className="card-img-top text-center mt-2" alt="image"/>
+                                <img 
+                                    src={singlePost._embedded['wp:featuredmedia']['0'].source_url.toString()} 
+                                    style={{margin: "0 auto", width: "30%"}} 
+                                    className="card-img-top text-center mt-2" 
+                                    alt="image"
+                                />
                                 <div className="card-body">
                                     <h5 className="card-title">{singlePost.title.rendered}</h5>
                                     <p className="card-text" dangerouslySetInnerHTML={{__html: singlePost.content.rendered}}></p>
                                     <Link to='/' className="btn btn-primary">Back to all posts</Link>
                                 </div>
-                            </div> : ''}
+                              </div> 
+                : ''}
                 
-                
+                <Footer />
             </div>
         )
     

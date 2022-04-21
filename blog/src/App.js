@@ -16,7 +16,6 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/:id" element={<PostDetails />} />
             <Route path="/page/:id" element={<Pages />} />
-            {/* <Route path="/contacts" element={<Contacts />} /> */}
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

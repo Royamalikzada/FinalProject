@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../footer/Footer';
 import Header from '../header/Header';
 
 const Home = (props) => {
@@ -7,7 +8,6 @@ const Home = (props) => {
     const [posts, setPosts] = useState();
     const [filteredPosts, setFilteredPosts] = useState();
     
-
     const filterResult = (categoryId) => {
          const result = posts.filter((data) =>{
             return data.categories.toString() === categoryId.toString()
@@ -18,7 +18,6 @@ const Home = (props) => {
 
     const allCategories = () => {
         return setFilteredPosts(posts)
-        
     }
 
     useEffect(()=>{
@@ -30,21 +29,14 @@ const Home = (props) => {
 
     },[])
 
-
-
-
     return (
-        <div >
+        <div>
             <Header filter={filterResult} allCategories={allCategories}/>
 
             <div className='row'>
                 {filteredPosts ? filteredPosts.map(post => {
                     return (
                         <div className='col-md-4 col-sm-12 mb-3 text-center' key={post.id}>
-
-                            {console.log(post)}
-                            {console.log(post._embedded['wp:featuredmedia']['0'].source_url.toString())}
-
                             <div className="card" style={{width: "18rem"}}>
                                 <img src={post._embedded['wp:featuredmedia']['0'].source_url.toString()} className="card-img-top" alt="image"/>
                                 <div className="card-body">
@@ -54,9 +46,10 @@ const Home = (props) => {
                                 </div>
                             </div>
                         </div>
-                    )
-                }) : ''}
+                    )}) : ''}
             </div>
+
+            <Footer />
         </div>
     )
 }
